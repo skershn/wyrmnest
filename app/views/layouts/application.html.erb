@@ -18,5 +18,15 @@
     <% end %>
 
     <%= yield %>
+    <div id="footer">
+      <div class="container">
+        <b>add links</b>
+        <br />
+        <%= link_to 'login', new_user_session_path %>
+        <%= link_to 'create an account', new_user_registration_path %>
+        <%= link_to 'forum', '#' %>
+        <%# add link to forum once forum is created %>
+      </div>
+    </div>
   </body>
 </html>
