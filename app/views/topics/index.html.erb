@@ -1,1 +1,13 @@
 <h1>thread index</h1>
+<h2>welcome!</h2>
+
+<%= link_to 'start a new thread', new_topic_path %>
+
+<% @topics.each do |topic| %>
+  <div class="box col-10 offset-1">
+    <%= link_to topic.title, topic_path(topic) %>&nbsp;
+    <% if topic.user.present? %>
+      <small><i><%= topic.user.email %></i></small> <%# change to username once that ability is added %>
+    <% end %>
+  </div>
+<% end %>

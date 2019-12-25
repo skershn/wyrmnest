@@ -20,11 +20,14 @@
     <%= yield %>
     <div id="footer">
       <div class="container">
-        <b>add links</b>
-        <br />
-        <%= link_to 'login', new_user_session_path %>
-        <%= link_to 'create an account', new_user_registration_path %>
-        <%= link_to 'forum', '#' %>
+        <% if user_signed_in? %>
+          <%= link_to 'logout', destroy_user_session_path, method: :delete %>&nbsp;
+        <% else %>
+          <%= link_to 'login', new_user_session_path %>&nbsp;
+          <%= link_to 'register', new_user_registration_path %>&nbsp;
+        <% end %>
+        <%= link_to 'forum', topics_path %>&nbsp;
+        <%= link_to 'main page', root_path %>&nbsp;
         <%# add link to forum once forum is created %>
       </div>
     </div>

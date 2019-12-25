@@ -1,0 +1,9 @@
+<div class="box col-10 offset-1">
+  <h1>create a new thread</h1>
+  <%= simple_form_for @topic do |f| %>
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <br />
+    <%= f.submit 'submit', class: 'btn btn-info' %>
+  <% end %>
+</div>
