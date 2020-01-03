@@ -1,9 +1,9 @@
 class TopicsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :find_topic, only: [:show, :edit, :update, :destroy]
  
   def index
-    @topics = Topic.all
+    @topics = Topic.all.order("created_at DESC")
   end
 
   def new

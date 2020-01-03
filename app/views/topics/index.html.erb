@@ -1,13 +1,14 @@
-<h1>thread index</h1>
-<h2>welcome!</h2>
-
-<%= link_to 'start a new thread', new_topic_path %>
+<br />
+<h3 class="boardHeader">~*~Welcome to the WyrmNest messageboard~*~</h3>
+<%= link_to 'start a new thread', new_topic_path, class: "col-2 offset-5 btn btn-success" %>
+<%# float not working??? %>
 
 <% @topics.each do |topic| %>
   <div class="box col-10 offset-1">
     <%= link_to topic.title, topic_path(topic) %>&nbsp;
     <% if topic.user.present? %>
-      <small><i><%= topic.user.email %></i></small> <%# change to username once that ability is added %>
+      <small><%= "created by " %><i><%= topic.user.email %>&nbsp;</i><%= time_ago_in_words(topic.created_at) %><%= " ago" %></small> <%# change to username once that ability is added %>
     <% end %>
+
   </div>
 <% end %>

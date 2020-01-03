@@ -1,0 +1,9 @@
+<div class="comment">
+  <p>
+    <%= comment.user.email %><%= " | " %>
+    <%= comment.comment %><br />
+    <sub>
+      <%= link_to "edit", edit_topic_comment_path(comment.topic, comment) %>&nbsp;
+      <%= link_to "delete", [comment.topic, comment], method: :delete, data: { confirm: "Are you sure?" } %></sub>
+  </p>
+</div>

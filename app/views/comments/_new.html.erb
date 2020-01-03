@@ -1,0 +1,5 @@
+<%= simple_form_for ([@topic, @topic.comments.create]) do |f| %>
+  <%= f.input :comment, label: false, label_html: { class: "commentbox" }, placeholder: "add a comment" %>
+  <br />
+  <%= f.submit 'post', class: 'btn btn-info btn-block' %>
+<% end %>
