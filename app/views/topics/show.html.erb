@@ -1,11 +1,18 @@
 <div class="box col-10 offset-1">
   <h1 class="title"><%= @topic.title %></h1>
   <p><%= @topic.content %></p>
-  <small><%= @topic.comments.count %><%= " comments" %></small><br />
-  <div class="box col-12 offset-0 padding-0">
-    <%# add user info & avatar %>
-    <%= render @topic.comments %>
-  </div>
+  <small><%= @topic.comments.count %>
+  <% if @topic.comments.count == 1 %>
+    <%= " comment" %>
+  <% else %>
+    <%= " comments" %></small><br />
+  <% end %>
+  <% if @topic.comments.present? %>
+    <div class="box col-12 offset-0 padding-0">
+      <%# add user info & avatar %>
+      <%= render @topic.comments %>
+    </div>
+  <% end %>
   <br />
   <%= render "comments/new" %>
 
