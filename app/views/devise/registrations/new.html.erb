@@ -9,22 +9,24 @@
                 autofocus: true,
                 input_html: { autocomplete: "email" },
                 label: false,
-                placeholder: "email" %>
+                placeholder: "email" %><br>
     <%= f.input :username,
                 required: true,
                 label: false,
-                placeholder: "username" %>
+                placeholder: "username" %><br>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" },
                 label: false,
-                placeholder: "password" %>
+                placeholder: "password" %><br>
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" },
                 label: false,
-                placeholder: "confirm password" %>
+                placeholder: "confirm password" %><br>
+    <%= f.label "profile photo" %>
+    <%= f.file_field :avatar %><br />
   </div>
 
   <div class="form-actions">
