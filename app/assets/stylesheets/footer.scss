@@ -13,7 +13,10 @@ body {
 }
 
 #footer {
+  background: image_url('16.jpg');
   position: relative;
+  bottom: 0;
+  margin-top: 10px;
   width: 100%;
   min-height: 100px;
   background-color: rgba(36, 32, 33, 0.9);

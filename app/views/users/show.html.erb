@@ -1,1 +1,5 @@
 <h1>userpage</h1>
+<%# add avatar, join date, post number, about, recent posts %>
+<%# add incubation drawer, dragon stable, img gallery %>
+<small>Member for <%= time_ago_in_words(@user.created_at) %></small>
+<%= link_to "account settings", edit_user_registration_path(@user) %>

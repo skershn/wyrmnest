@@ -8,7 +8,7 @@
     <%= " comments" %></small><br />
   <% end %>
   <% if @topic.comments.present? %>
-    <div class="box col-12 offset-0 padding-0">
+    <div>
       <%# add user info & avatar %>
       <%= render @topic.comments %>
     </div>
@@ -16,8 +16,9 @@
   <br />
   <%= render "comments/new" %>
 
-
-  <%= link_to 'edit', edit_topic_path(@topic) %>
-  <%= link_to 'delete', topic_path(@topic), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
+  <% if current_user == @topic.user %>
+    <%= link_to 'edit', edit_topic_path(@topic) %> |
+    <%= link_to 'delete', topic_path(@topic), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %> |
+  <% end %>
   <%= link_to 'home', topics_path %>
 </div>

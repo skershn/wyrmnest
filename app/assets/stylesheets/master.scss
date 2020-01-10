@@ -1,13 +1,17 @@
 @import "bootstrap";
 
 .hero {
-  background: image_url('placeholder.jfif');
+  background: image_url('1.jpg');
   height: 800px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 
+}
+
+.topnav {
+  background: image_url('5.jpg')
 }
 
 h1, h2 {
@@ -22,7 +26,7 @@ h1, h2 {
   border: 1px solid #ccc;
   border-radius: 6px;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
-  padding: 30px;
+  padding: 15px;
   margin-top: 20px;
 }
 

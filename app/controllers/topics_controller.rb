@@ -26,20 +26,19 @@ class TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
-
-    if @topic.user != current_user
-      return render plain: 'forbidden', status: :forbidden
-    end      
+    verify_user       
   end
 
   def update
     @topic = Topic.find(params[:id])
+    verify_user
     @topic.update_attributes(topic_params)
-    redirect_to topics_path #ask about redirecting back to the thread itself
+    redirect_to topic_path(@topic) #ask about redirecting back to the thread itself
   end
 
   def destroy
-    #figure out how to delete OP and leave thread/comments intact
+    #boolean thread
+    verify_user
     @topic.destroy
     redirect_to topics_path
   end
@@ -52,5 +51,11 @@ class TopicsController < ApplicationController
 
   def find_topic
     @topic = Topic.find(params[:id])
+  end
+
+  def verify_user
+    if current_user != @topic.user
+      return render plain: 'forbidden', status: :forbidden
+    end
   end
 end

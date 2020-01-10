@@ -7,8 +7,7 @@
   <div class="box col-10 offset-1">
     <%= link_to topic.title, topic_path(topic) %>&nbsp;
     <% if topic.user.present? %>
-      <small><%= "created by " %><i><%= topic.user.email %>&nbsp;</i><%= time_ago_in_words(topic.created_at) %><%= " ago" %></small> <%# change to username once that ability is added %>
+      <small><%= "created by " %><i><%= topic.user.username %>&nbsp;</i><%= time_ago_in_words(topic.created_at) %><%= " ago" %></small> 
     <% end %>
-
   </div>
 <% end %>

@@ -10,26 +10,28 @@
   </head>
 
   <body>
-    <nav class="navbar fixed-top navbar-inverse bg-inverse">
-      <a class="navbar-brand" href="/">Wyrmnest</a>
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to 'Welcome, user!', user_path(current_user), class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to 'login', new_user_session_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'register', new_user_registration_path, class: 'nav-link' %>
-          </li>
-        <% end %>
-      </ul>
-    </nav>
+    <div class="topnav">
+      <nav class="navbar navbar-inverse bg-inverse">
+        <a class="navbar-brand" href="/">Wyrmnest</a>
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Welcome, #{current_user.username}!", user_path(current_user), class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'login', new_user_session_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'register', new_user_registration_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+  </div>
 
     <% if notice.present? %>
       <p class="alert alert-info"><%= notice %></p>
@@ -50,7 +52,6 @@
           <% end %>
           <%= link_to 'forum', topics_path %>&nbsp;
           <%= link_to 'main page', root_path %>&nbsp;
-          <%# add link to forum once forum is created %>
         </nav>
       </div>
     </div>

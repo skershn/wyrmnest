@@ -1,9 +1,14 @@
 <div class="comment">
+  <hr>
   <p>
-    <%= comment.user.email %><%= " | " %>
+    <%= comment.user.username %><%= ": " %>
     <%= comment.comment %><br />
-    <sub>
-      <%= link_to "edit", edit_topic_comment_path(comment.topic, comment) %>&nbsp;
-      <%= link_to "delete", [comment.topic, comment], method: :delete, data: { confirm: "Are you sure?" } %></sub>
+    <% if current_user == comment.user %>
+      <sub>
+        <%= link_to "edit", edit_topic_comment_path(comment.topic, comment) %>&nbsp;
+        <%= link_to "delete", [comment.topic, comment], method: :delete, data: { confirm: "Are you sure?" } %>
+          
+      </sub>
+    <% end %>
   </p>
 </div>
