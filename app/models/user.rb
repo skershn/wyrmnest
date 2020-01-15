@@ -14,8 +14,8 @@ class User < ApplicationRecord
     self.save
     case self.comments
     when 5
-      dragon_type = DragonType.where(class:0).order|:random|
-      d = Dragon.new()
+      dragon_type = DragonType.where(class:0).order|:random|.first
+      d = Dragon.new(dragon_type: dragon_type)
     end
   end
 end
