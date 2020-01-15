@@ -30,10 +30,14 @@
                 required: true,
                 label: false,
                 placeholder: "current password",
-                input_html: { autocomplete: "current-password" } %><br>
-    <%= f.label "profile photo" %>
-    <%= f.file_field :avatar %><br />
+                input_html: { autocomplete: "current-password" } %>
+    <br />
   </div>
+
+  <%= form_with(url: avatar_path(resource), method: :post, multipart: true) do %>
+    <%= file_field_tag :avatar %>
+    <%= submit_tag "upload photo" %>
+<% end %>
 
   <div class="form-actions">
     <%= f.button :submit, "update", class: "btn btn-success btn-block" %>

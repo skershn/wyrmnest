@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_10_025309) do
+ActiveRecord::Schema.define(version: 2020_01_15_031020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(version: 2020_01_10_025309) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "clickers", force: :cascade do |t|
+    t.integer "clicks", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.text "comment"
     t.bigint "topic_id"
@@ -50,6 +56,14 @@ ActiveRecord::Schema.define(version: 2020_01_10_025309) do
     t.datetime "updated_at", null: false
     t.index ["topic_id"], name: "index_comments_on_topic_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "dragons", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_dragons_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -78,4 +92,5 @@ ActiveRecord::Schema.define(version: 2020_01_10_025309) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "topics"
   add_foreign_key "comments", "users"
+  add_foreign_key "dragons", "users"
 end

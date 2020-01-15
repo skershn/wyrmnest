@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :users, only: :show
+  post 'user/:id/avatars', to: 'avatars#create', as: :avatar
 end
