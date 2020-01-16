@@ -1,9 +1,10 @@
 <div class="comment">
   <hr>
   <p>
+<%#
     <% if @user.avatar.attached? %>
-      <image src="<%=(url_for(@user.avatar))%>">
-    <% end %>
+<%#      <image src="<%=(url_for(@user.avatar))%><%#">
+<%#    <% end %>
     <%= comment.user.username %><%= ": " %>
     <%= comment.comment %><br />
     <% if current_user == comment.user %>
