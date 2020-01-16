@@ -6,7 +6,6 @@ class CreateDragons < ActiveRecord::Migration[5.2]
     end
 
     create_table :dragons do |t|
-      t.references :user, foreign_key: true
       t.datetime :remember_created_at
       t.belongs_to :user
       t.belongs_to :dragon_type

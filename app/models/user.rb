@@ -9,13 +9,15 @@ class User < ApplicationRecord
   has_many :dragons
   has_one_attached :avatar
 
-  def comment
-    self.comments += 1
-    self.save
-    case self.comments
-    when 5
-      dragon_type = DragonType.where(class:0).order|:random|.first
-      d = Dragon.new(dragon_type: dragon_type)
-    end
-  end
+#  def clicks
+#    self.clicks += 1
+#    self.save
+#    case self.clicks
+#    when 5
+#      dragon_type = DragonType.new(rarity:0).order(:random).first
+#      dragon_type = DragonType.create(rarity: 0, description: "A large green and blue egg. Somewhat like a large chicken egg.")
+#      d = Dragon.new(dragon_type: dragon_type, user: self)
+#    end
+#  end
+
 end
