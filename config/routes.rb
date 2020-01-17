@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show
   post 'user/:id/avatars', to: 'avatars#create', as: :avatar
+  resources :dragons
 end

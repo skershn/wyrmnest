@@ -1,7 +1,8 @@
 class DragonsController < ApplicationController
 
-  def new
+  def create
     @dragon = dragon.new
+    @dragon.save
   end
 
   def show
