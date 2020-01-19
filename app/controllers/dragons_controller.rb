@@ -1,8 +1,7 @@
 class DragonsController < ApplicationController
 
-  def create
-    @dragon = dragon.new
-    @dragon.save
+  def index
+    @dragon = Dragon.all
   end
 
   def show
