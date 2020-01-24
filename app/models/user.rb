@@ -1,4 +1,7 @@
-class User < ApplicationRecord
+class User < ActiveRecord::Base
+
+  attr_accessor [only: :topics, :comments, :dragons]
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,17 +12,14 @@ class User < ApplicationRecord
   has_many :dragons
   has_one_attached :avatar
 
+  def initialize
+    @user = User.find_by_id(params[:user_id])
+  end
 
-
-  def click
-    self.clicks += 1
-    self.save
-    case self.clicks
-    when 5
-      dragon_type = DragonType.where(rarity: 0).order(:random).first
-      d = Dragon.new(dragon_type: dragon_type, user: self)
-      d.save
-    end
+  def post_count
+    c = @user.comments.count
+    t = @user.topics.count
+    total = c + t
   end
 
 end
