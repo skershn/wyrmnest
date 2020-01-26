@@ -12,14 +12,6 @@ class User < ActiveRecord::Base
   has_many :dragons
   has_one_attached :avatar
 
-  def initialize
-    @user = User.find_by_id(params[:user_id])
-  end
-
-  def post_count
-    c = @user.comments.count
-    t = @user.topics.count
-    total = c + t
-  end
+  
 
 end

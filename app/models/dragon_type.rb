@@ -1,7 +1,7 @@
 class DragonType < ApplicationRecord
 #  enum rarity: [:common_dragon, :rare_dragon]
 
-
+=begin
   def color
     col = [1..4]
     get = col.sample
@@ -22,7 +22,7 @@ class DragonType < ApplicationRecord
     end
   end
 
-
+=end
  
 
 end
