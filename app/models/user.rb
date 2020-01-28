@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessor [only: :topics, :comments, :dragons]
+  attr_accessor [only: :topics, :comments]
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
