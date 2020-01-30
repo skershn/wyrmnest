@@ -1,19 +1,5 @@
 class DragonsController < ApplicationController
 
-
-  def initialize(seed = nil)
-    if seed
-      @rng = Random.new(seed)
-    else
-      @rng = Random.new
-    end
-  end
-
-  def roll_20
-    @rng.rand(20)
-  end
-
-
   def initialize
     generate_dragon
   end
@@ -73,7 +59,7 @@ class DragonsController < ApplicationController
     soot_dragon.clicks = 0
   end
 
-
+#attach images for each
 
   
 

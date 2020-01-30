@@ -42,12 +42,6 @@ ActiveRecord::Schema.define(version: 2020_01_15_031020) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "clickers", force: :cascade do |t|
-    t.integer "clicks", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comments", force: :cascade do |t|
     t.text "comment"
     t.bigint "topic_id"
@@ -58,18 +52,11 @@ ActiveRecord::Schema.define(version: 2020_01_15_031020) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "dragon_types", force: :cascade do |t|
-    t.string "description"
-    t.integer "rarity"
-  end
-
   create_table "dragons", force: :cascade do |t|
     t.datetime "remember_created_at"
     t.bigint "user_id"
-    t.bigint "dragon_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dragon_type_id"], name: "index_dragons_on_dragon_type_id"
     t.index ["user_id"], name: "index_dragons_on_user_id"
   end
 

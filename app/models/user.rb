@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessor [only: :topics, :comments]
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -11,6 +11,22 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :dragons
   has_one_attached :avatar
+
+  def add_posts
+    t = User.topics.count
+    c = User.comments.count
+    @total = t + c
+  end
+
+  def spawn
+    case add_posts #or @total??????????
+    when 5
+      generate_dragon
+    end
+  end
+
+
+
 
   
 
