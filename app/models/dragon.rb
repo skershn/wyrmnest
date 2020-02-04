@@ -1,41 +1,67 @@
 class Dragon < ApplicationRecord
   belongs_to :user
-  #belongs_to :dragon_type
-  r = Randomizer.new
 
-  def initialize
-    generate_dragon
+  def initialize(color)
+    @color = color
+  end
+
+  def color
+    @color
   end
 
   private
 
-  def generate_class
-    case r.roll
-    when 0..15
-      common
+  c = [1..20]
+
+  def randomize
+    case c.sample
+    when 1..15
+      common_dragon
     when 16..20
-      rare
+      rare_dragon
     end
   end
 
-  def common
-    case r.roll
-    when 0..6
+  def common_dragon
+    rc = @c.sample
+    case rc
+    when 1..7
       red
-    when 7..13
+    when 8..14
       blue
-    when 14..20
+    when 15..20
       green
     end
   end
 
-  def rare
-    case r.roll
-    when 0..9
-      opal
-    when 10..20
+  def rare_dragon
+    rr = @c.sample
+    case rr
+    when 1..10
       soot
+    when 11..20
+      opal
     end
+  end  
+
+
+  def red
+    "red"  
   end
 
+  def blue
+    "blue"
+  end
+
+  def green
+    "green"
+  end
+
+  def opal
+    "opal"
+  end
+
+  def soot
+    "soot"
+  end
 end

@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def dragon_get
+    @possible_dragon = @user.add_posts
+  end
+
   
 
 end
