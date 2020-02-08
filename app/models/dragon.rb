@@ -11,10 +11,11 @@ class Dragon < ApplicationRecord
 
   private
 
-  c = [1..20]
+  
 
   def randomize
-    case c.sample
+    @c = [1..20]
+    case @c.sample
     when 1..15
       common_dragon
     when 16..20

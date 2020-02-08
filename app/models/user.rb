@@ -10,15 +10,14 @@ class User < ActiveRecord::Base
   has_one_attached :avatar
 
   def add_posts
-    new_dragon = nil
     t = self.topics.count
     c = self.comments.count
     total = t + c
     if total % 5 == 0
-      new_dragon = spawn
+      spawndragon = spawn
     end
     self.save
-    new_dragon
+    spawndragon
   end
 
   def spawn

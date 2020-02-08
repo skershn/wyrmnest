@@ -1,17 +1,53 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Uncial+Antiqua&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Amethysta&display=swap');
+
+.clr{
+clear:both;
+}
 
 .hero {
-  background: image_url('15.jpg');
-  height: 800px;
+  font-family: 'Uncial Antiqua', cursive;
+  background: image_url('dragonbanner.png') no-repeat center center;
+  height: 900px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: 700x500;
+}
 
+.hero h1 {
+  font-size: 80px;
+  color: #8C1409;
+}
+.hero h2, .formbox h2 {
+  color: #8C1409;
+}
+
+.titletext, {
+  position: relative;
+  right: 75px;
+  top: 200px;
+}
+
+.landingLinks {
+  position: relative;
+  right: 50px;
+  top: 50px;
+}
+
+.frontbutton {
+  font-family: 'Uncial Antiqua', cursive;
+  background-color: #8C1409;
 }
 
 .topnav {
   background: image_url('15.jpg')
+}
+
+.topnav a, .footer a {
+  font-family: 'Uncial Antiqua', cursive;
+  color: #8C1409;
 }
 
 h1, h2 {
@@ -22,20 +58,40 @@ h1, h2 {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
   box-shadow: 1px 1px 2px 0 #d0d0d0;
-  background: #fff;
   border: 1px solid #ccc;
   border-radius: 6px;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   padding: 15px;
   margin-top: 20px;
+  font-family: 'Amethysta', serif;
+  color: #8C1409;
+  background-color: #ffe680;
 }
 
-.frosty {
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+
+.box h2 {
+  font-family: 'Uncial Antiqua', cursive;
+  color: #8C1409;
+}
+
+.email, .password, .string {
+  width: 100%;
+  border-radius: 6px;
 }
 
 textarea {
   width: 100%;
+}
+
+.commentbox {
+  -moz-box-shadow: 1px 1px 2px 0 #986e1b;
+  -webkit-box-shadow: 1px 1px 2px 0 #986e1b;
+  box-shadow: 1px 1px 2px 0 #986e1b;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  border-color: #edbe5e #e6b34c #e6b34c #edbe5e;
+  padding: 15px;
+  font-family: 'Amethysta', serif;
+  color: #8C1409;
+  background-color: #ffe680;
 }

@@ -4,10 +4,23 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user.update_attributes(user_params)
+    redirect_to user_path(@user)
+  end
+
   def dragon_get
     @possible_dragon = @user.add_posts
   end
 
-  
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :password, :email)
+  end
 
 end

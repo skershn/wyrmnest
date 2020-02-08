@@ -31,7 +31,8 @@
           <% end %>
         </ul>
       </nav>
-  </div>
+    </div>
+
 
     <% if notice.present? %>
       <p class="alert alert-info"><%= notice %></p>
@@ -40,10 +41,12 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
+    <div class="clr"></div>
+
     <%= yield %>
-    <div id="footer">
+    <div class="footer">
       <div class="container">
-        <nav class="navbar sticky-bottom navbar-inverse bg-inverse">
+        <nav class="navbar fixed-bottom navbar-inverse bg-inverse">
           <% if user_signed_in? %>
             <%= link_to 'logout', destroy_user_session_path, method: :delete %>&nbsp;
           <% else %>

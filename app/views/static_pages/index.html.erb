@@ -1,9 +1,24 @@
+
 <div class="hero">
   <br />
-  <div class="frosty col-10 offset-1 text-center">
+  <div class="titletext
+   text-center">
     <%# to be replaced with banner image %>
     <h2>welcome to</h2>
     <h1>WyrmNest</h1>
-    
-  </div> 
+  
+    <div class="landingLinks col-5 offset-4">
+      <% if user_signed_in? %>
+        <%= link_to 'FORUM', topics_path, class: "frontbutton btn btn-lg btn-block btn-danger" %>
+        <br>
+        <%= link_to 'your profile', user_path(current_user), class: "frontbutton btn btn-lg btn-block btn-danger" %>
+        <br>
+        <%= link_to 'LOGOUT', destroy_user_session_path, class: "frontbutton btn btn-lg btn-block btn-danger", method: :delete %>
+      <% else %>
+        <%= link_to 'LOGIN', new_user_session_path, class: "frontbutton btn btn-lg btn-block btn-danger" %>
+        <br />
+        <%= link_to 'REGISTER', new_user_registration_path, class: "frontbutton btn btn-lg btn-block btn-danger" %>
+      <% end %>
+    </div>
+  </div>
 </div>
