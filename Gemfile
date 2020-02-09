@@ -73,6 +73,7 @@ gem 'simple_form'
 gem 'devise'
 gem "figaro"
 gem "aws-sdk-s3", require: false
+gem 'sitemap_generator'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
