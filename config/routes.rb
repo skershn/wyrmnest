@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :users, only: :show
   post 'user/:id/avatars', to: 'avatars#create', as: :avatar
   resources :dragons
+
+  get 'search', to: 'static_pages#search'
 end
