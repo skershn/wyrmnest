@@ -1,20 +1,23 @@
-<div class="comment">
+<div class="comment inline-block">
   <hr>
   <p>
 
-    <div class="commentdivider">
+    <div class="commentdivider col-3 float-left">
       <% if comment.user.avatar.attached? %>
         <%= image_tag(comment.user.thumbnail) %>
+      <% else %>
+        <%= image_tag('noicon.png') %>
       <% end %>
-        <%= comment.user.username %>
+      <%= comment.user.username %> 
     </div>
+    <div class="commentdivider col-9 float-right">
       <%= comment.comment %><br />
       <% if current_user == comment.user %>
-        <sub>
+        <sub class="commcontrols">
           <%= link_to "edit", edit_topic_comment_path(comment.topic, comment) %>&nbsp;
-          <%= link_to "delete", [comment.topic, comment], method: :delete, data: { confirm: "Are you sure?" } %>
-            
+          <%= link_to "delete", [comment.topic, comment], method: :delete, data: { confirm: "Are you sure?" } %>  
         </sub>
-      <% end %>
+      <% end %> 
+    </div>
   </p>
 </div>

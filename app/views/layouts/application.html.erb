@@ -43,22 +43,27 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-    <div class="clr"></div>
-
     <%= yield %>
+
+    
     <div class="footer">
       <div class="container">
-        <% if user_signed_in? %>
-          <%= link_to 'logout', destroy_user_session_path, method: :delete %>&nbsp;
-        <% else %>
-          <%= link_to 'login', new_user_session_path %>&nbsp;
-          <%= link_to 'register', new_user_registration_path %>&nbsp;
-        <% end %>
-        <%= link_to 'forum', topics_path %>&nbsp;
-        <%= link_to 'main page', root_path %>&nbsp;
-        <%= link_to 'search', search_path %>&nbsp;
-        <%= link_to 'about', about_path %>
+        <div class="row">
+          <div class="col-12">
+            <% if user_signed_in? %>
+              <%= link_to 'logout', destroy_user_session_path, method: :delete %>&nbsp;
+            <% else %>
+              <%= link_to 'login', new_user_session_path %>&nbsp;
+              <%= link_to 'register', new_user_registration_path %>&nbsp;
+            <% end %>
+            <%= link_to 'forum', topics_path %>&nbsp;
+            <%= link_to 'main page', root_path %>&nbsp;
+            <%= link_to 'search', search_path %>&nbsp;
+            <%= link_to 'about', about_path %>
+          </div>
+        </div>
       </div>
     </div>
+
   </body>
 </html>

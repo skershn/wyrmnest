@@ -1,7 +1,6 @@
 <br />
-<h3 class="boardHeader">~*~Welcome to the WyrmNest messageboard~*~</h3>
+<div class="boardHeader text-center"><h1>Welcome to the WyrmNest messageboard!</h1></div>
 <%= link_to 'start a new thread', new_topic_path, class: "col-2 offset-5 btn btn-success" %>
-<%# float not working??? %>
 
 <% @topics.each do |topic| %>
   <div class="box col-10 offset-1">

@@ -6,7 +6,15 @@
 clear: both;
 }
 
+.line {
+  height: 2px;
+  color: #edbe5e;
+  width: 100%;
+}
+
 .body {
+  margin: 0;
+  padding: 0;
   height: 100%;
 }
 
@@ -55,6 +63,11 @@ a#hover {
 .frontbutton {
   font-family: 'Uncial Antiqua', cursive;
   background-color: #8C1409;
+  color: white;
+}
+
+.btn {
+  font-family: 'Uncial Antiqua', cursive;
 }
 
 .topnav {
@@ -114,12 +127,35 @@ textarea {
   background-color: #ffe680;
 }
 
+.commentdivider {
+  margin-left: 0;
+  border: 1px solid #ccc;
+  border-color: #edbe5e #e6b34c #e6b34c #edbe5e;
+  padding: 5px;
+  font-family: 'Amethysta', serif;
+  color: #8C1409;
+  background-color: #ffe680;
+  height: 125px;
+}
+
+.commcontrols {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+
+.container {
+  min-height: 100%;
+  position: relative;
+}
+
 .footer {
+  bottom: 0px;
+  width: 100%;
   background: image_url('footerbanner.png');
   min-height: 100px;
   text-align: center;
   padding-top: 40px;
-  bottom: 0;
 }
 
 .footer a {
@@ -130,6 +166,14 @@ textarea {
 .boardHeader {
   background: image_url('bbsbanner.png') no-repeat center;
   min-height: 250px;
+}
+
+.boardHeader h1 {
+  position: relative;
+  top: 100px;
+  font-family: 'Uncial Antiqua', cursive;
+  color: #8C1409;
+  font-size: 32px;
 }
 
 .userbody_right {

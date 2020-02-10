@@ -1,7 +1,9 @@
 <br />
-
-<%= simple_form_for ([@topic, @comment]) do |f| %>
-  <%= f.input :comment, label: false, label_html: { class: "commentbox" }, placeholder: "add a comment" %>
-  <br />
-  <%= f.submit 'update', class: 'btn btn-success btn-block' %>
-<% end %>
+<div class="commentbox col-8 offset-2">
+  <%= simple_form_for ([@topic, @comment]) do |f| %>
+    <%= f.input :comment, label: false, label_html: { class: "commentbox" }, placeholder: "add a comment" %>
+    <br />
+    <%= f.submit 'update', class: 'btn btn-success btn-block' %>
+    <%= link_to "back", :back, class: 'btn btn-block frontbutton' %>
+  <% end %>
+</div>
