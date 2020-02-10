@@ -1,6 +1,9 @@
 <div class="commentbox col-10 offset-1">
   <h1 class="title"><%= @topic.title %></h1>
+  <sub><i><%= "Created by " %><%= link_to (@topic.user.username), user_path(@topic.user) %> <%= time_ago_in_words(@topic.created_at) %><%= " ago" %></i></sub>
+  <br><br />
   <p><%= @topic.content %></p>
+
   <small><%= @topic.comments.count %>
   <% if @topic.comments.count == 1 %>
     <%= " comment" %>
@@ -9,7 +12,6 @@
   <% end %>
   <% if @topic.comments.present? %>
     <div>
-      <%# add user info & avatar %>
       <%= render @topic.comments %>
     </div>
   <% end %>
@@ -20,5 +22,6 @@
     <%= link_to 'edit', edit_topic_path(@topic) %> |
     <%= link_to 'delete', topic_path(@topic), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %> |
   <% end %>
-  <%= link_to 'home', topics_path %>
+  <br>
+  <%= link_to 'back', topics_path, class: 'btn btn-sm btn-block frontbutton' %>
 </div>

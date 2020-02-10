@@ -2,8 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Uncial+Antiqua&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Amethysta&display=swap');
 
-.clr{
-clear:both;
+.clr {
+clear: both;
+}
+
+.body {
+  height: 100%;
 }
 
 .hero {
@@ -30,6 +34,18 @@ clear:both;
   top: 200px;
 }
 
+p {
+  color: #8C1409;
+}
+
+a {
+  color: #E4190B;
+}
+
+a#hover {
+  color: #FBB132;
+}
+
 .landingLinks {
   position: relative;
   right: 50px;
@@ -42,7 +58,9 @@ clear:both;
 }
 
 .topnav {
-  background: image_url('15.jpg')
+  margin-bottom: 15px;
+  min-height: 105px;
+  background: image_url('headerbanner.png');
 }
 
 .topnav a, .footer a {
@@ -51,7 +69,7 @@ clear:both;
 }
 
 h1, h2 {
-  color: white;
+  color: #8C1409;
 }
 
 .box {
@@ -94,4 +112,42 @@ textarea {
   font-family: 'Amethysta', serif;
   color: #8C1409;
   background-color: #ffe680;
+}
+
+.footer {
+  background: image_url('footerbanner.png');
+  min-height: 100px;
+  text-align: center;
+  padding-top: 40px;
+  bottom: 0;
+}
+
+.footer a {
+  padding: 40px;
+}
+
+
+.boardHeader {
+  background: image_url('bbsbanner.png') no-repeat center;
+  min-height: 250px;
+}
+
+.userbody_right {
+  width: 42.5%;
+  margin-right: 5%;
+  margin-left: 55%;
+}
+
+.userbody_left {
+  width: 42.5%;
+  margin-left: 5%;
+  position: absolute;
+}
+
+.userbody_right, .userbody_left {
+  display: inline-block;
+}
+
+.userprofile {
+  min-height: 900px;
 }

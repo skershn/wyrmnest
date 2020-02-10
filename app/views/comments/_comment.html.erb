@@ -1,12 +1,13 @@
 <div class="comment">
   <hr>
   <p>
-<%#
-    <% if @user.avatar.attached? %>
-<%#      <image src="<%=(url_for(@user.avatar))%><%#">
-<%#    <% end %>
-    <div>
-      <%= comment.user.username %>|
+
+    <div class="commentdivider">
+      <% if comment.user.avatar.attached? %>
+        <%= image_tag(comment.user.thumbnail) %>
+      <% end %>
+        <%= comment.user.username %>
+    </div>
       <%= comment.comment %><br />
       <% if current_user == comment.user %>
         <sub>
@@ -15,6 +16,5 @@
             
         </sub>
       <% end %>
-    </div>
   </p>
 </div>

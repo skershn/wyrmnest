@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   has_many :dragons
   has_one_attached :avatar
 
+  def thumbnail
+    return self.avatar.variant(resize: '100x100')
+  end
+
   def add_posts
     t = self.topics.count
     c = self.comments.count

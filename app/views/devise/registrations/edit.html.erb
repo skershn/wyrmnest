@@ -5,49 +5,53 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :email, required: true, autofocus: true, label: false %>
+        <%= f.input :email, required: true, autofocus: false, label: false %><br>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
-
+        <%= f.input :username,
+                    required: true,
+                    label: false,
+                    placeholder: "username" %><br>
         <%= f.input :password,
-                    hint: " leave it blank if you don't want to change it",
                     required: false,
                     label: false,
-                    placeholder: "new password",
+                    placeholder: "new password (leave blank if you don't want to change it)",
                     input_html: { autocomplete: "new-password" } %><br>
         <%= f.input :password_confirmation,
                     required: false,
                     label: false,
                     placeholder: "confirm new password",
                     input_html: { autocomplete: "new-password" } %><br>
-        <%= f.input :username,
-                    required: true,
-                    label: false,
-                    placeholder: "username" %><br>
+
         <%= f.input :current_password,
-                    hint: " we need your current password to confirm your changes",
                     required: true,
                     label: false,
-                    placeholder: "current password",
+                    placeholder: "enter current password to confirm changes",
                     input_html: { autocomplete: "current-password" } %>
         <br />
       </div>
-
-      <%= form_with(url: avatar_path(resource), method: :post, multipart: true) do %>
-        <%= file_field_tag :avatar %>
-        <%= submit_tag "upload photo" %>
-    <% end %>
     <br>
 
       <div class="form-actions col-6 offset-3">
-        <%= f.button :submit, "update", class: "btn btn-success btn-block" %>
+        <%= f.button :submit, "update userinfo", class: "btn btn-success btn-block" %>
       </div>
     <% end %>
-    <div class="box col-6 offset-3">
-        <h3>Close your account</h3>
+    <br>
 
+    <div class="addavatar commentbox">
+      <p>add or change your avatar</p>
+      <% if @user.avatar.attached? %>
+        <image src="<%= (url_for(@user.avatar)) %>"></image>
+      <% end %>
+      <%= form_with(url: avatar_path(resource), method: :post, multipart: true) do %>
+        <%= file_field_tag :avatar %>
+        <%= submit_tag "upload photo" %>
+      <% end %>
+    </div>
+
+    <div class="box col-6 offset-3">
         <p>Unhappy? <%= link_to "Delete my account", registration_path(resource_name), class: "btn btn-sm btn-danger", data: { confirm: "Are you sure?" }, method: :delete %></p>
     </div>
 

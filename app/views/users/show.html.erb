@@ -1,34 +1,44 @@
+<div class="userprofile">
+  <div class="usertop offset-1">
+    <% if @user.avatar.attached? %>
+      <div class="commentbox col-3">
+        <%= image_tag(@user.thumbnail) %>
+      </div>
+    <% end %>
+    <small>
+      Member for <%= time_ago_in_words(@user.created_at) %><br>
+      <%= @user.comments.count %> posts
+    </small>
+    <br />
 
-<%# fix avatar, add about, recent posts %>
-<%# add incubation drawer, dragon stable, img gallery %>
-<div class="usertop offset-1">
-  <% if @user.avatar.attached? %>
-    <image src="<%= (url_for(@user.avatar)) %>"></image>
-  <% end %>
-  <small>
-    Member for <%= time_ago_in_words(@user.created_at) %><br>
-    <%= @user.comments.count %> posts
-  </small>
-  <br />
-
-  <%= link_to "edit profile", edit_user_registration_path(@user), class: "col-3 btn btn-sm btn-danger" %><br><br />
-</div>
-<div class="userbody_left col-5 float-left">
-  <div class="userinfo commentbox">
-
+    <%= link_to "edit profile", edit_user_registration_path(@user), class: "col-3 btn btn-sm btn-danger" %><br><br />
   </div>
-  <br>
-  <div class="usereggs commentbox">
+  <div class="userbody_left">
+    <div class="userposts commentbox">
+      <p>recent posts</p>
+      <% @user.comments.take(5).each do |comment| %>
+        <i><%= "\"" %><%= comment.comment %><%= "\"" %></i><%= " on " %><b><%= link_to comment.topic.title, topic_path(comment.topic) %></b><br>
+      <% end %>
+    </div>
+    <br>
 
+
+    <div class="userpics commentbox">
+
+    </div>
   </div>
-</div>
-<div class="userbody_right col-5 offset-6 float-right">
 
-  <div class="userdragons commentbox">
+  <br class="clr" />
 
+  <div class="userbody_right">
+
+    <div class="usereggs commentbox">
+
+    </div>
+    <br>
+    <div class="userdragons commentbox">
+
+    </div>
   </div>
-  <br>
-  <div class="userpics commentbox">
-
-  </div>
+  <br class="clr" />
 </div>

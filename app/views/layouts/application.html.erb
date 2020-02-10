@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wyrmnest</title>
+    <title>WyrmNest</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -48,17 +48,16 @@
     <%= yield %>
     <div class="footer">
       <div class="container">
-        <nav class="navbar fixed-bottom navbar-inverse bg-inverse">
-          <% if user_signed_in? %>
-            <%= link_to 'logout', destroy_user_session_path, method: :delete %>&nbsp;
-          <% else %>
-            <%= link_to 'login', new_user_session_path %>&nbsp;
-            <%= link_to 'register', new_user_registration_path %>&nbsp;
-          <% end %>
-          <%= link_to 'forum', topics_path %>&nbsp;
-          <%= link_to 'main page', root_path %>&nbsp;
-          <%= link_to 'search', search_path %>
-        </nav>
+        <% if user_signed_in? %>
+          <%= link_to 'logout', destroy_user_session_path, method: :delete %>&nbsp;
+        <% else %>
+          <%= link_to 'login', new_user_session_path %>&nbsp;
+          <%= link_to 'register', new_user_registration_path %>&nbsp;
+        <% end %>
+        <%= link_to 'forum', topics_path %>&nbsp;
+        <%= link_to 'main page', root_path %>&nbsp;
+        <%= link_to 'search', search_path %>&nbsp;
+        <%= link_to 'about', about_path %>
       </div>
     </div>
   </body>
