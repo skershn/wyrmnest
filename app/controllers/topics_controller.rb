@@ -20,25 +20,30 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
-    #add comments
+    find_topic
   end
 
   def edit
-    @topic = Topic.find(params[:id])
+    find_topic
     verify_user       
   end
 
   def update
-    @topic = Topic.find(params[:id])
+    find_topic
     verify_user
+    return render_not_found if @topic.blank?
     @topic.update_attributes(topic_params)
-    redirect_to topic_path(@topic) #ask about redirecting back to the thread itself
+    if @topic.valid?
+      redirect_to topic_path(@topic)
+    else
+      return render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    #boolean thread
-    verify_user
+    @topic = Topic.find_by_id(params[:id])
+    return render_not_found if @topic.blank?
+    return render_not_found(:forbidden) if @topic.user != current_user
     @topic.destroy
     redirect_to topics_path
   end
@@ -50,7 +55,7 @@ class TopicsController < ApplicationController
   end
 
   def find_topic
-    @topic = Topic.find(params[:id])
+    @topic = Topic.find_by_id(params[:id])
   end
 
   def verify_user

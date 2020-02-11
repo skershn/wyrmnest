@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
     return self.avatar.variant(resize: '100x100')
   end
 
+  def userimage
+    return self.photo.variant(resize: '800x800>')
+  end
+
   def add_posts
     t = self.topics.count
     c = self.comments.count

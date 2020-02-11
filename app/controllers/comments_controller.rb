@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def create
-    @topic = Topic.find(params[:topic_id])
+    find_topic
+    return render_not_found if @topic.blank?
     @comment = @topic.comments.create(comment_params.merge(user: current_user))
     @comment.user_id = current_user.id if current_user
     @comment.save
@@ -15,12 +16,12 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find(params[:topic_id])
+    find_topic
     @comment = @topic.comments.find(params[:id])
   end
 
   def update
-    @topic = Topic.find(params[:topic_id])
+    find_topic
     @comment = @topic.comments.find(params[:id])
 
     if @comment.update(params[:comment].permit(:comment))
@@ -41,5 +42,9 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:comment)
+  end
+
+  def find_topic
+    @topic = Topic.find_by_id(params[:topic_id])
   end
 end
