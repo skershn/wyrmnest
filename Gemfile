@@ -74,6 +74,7 @@ gem 'devise'
 gem "figaro"
 gem "aws-sdk-s3", require: false
 gem 'sitemap_generator'
+gem 'will_paginate', '~> 3.1.1'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'

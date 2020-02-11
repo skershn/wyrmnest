@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   before_action :find_topic, only: [:show, :edit, :update, :destroy]
  
   def index
-    @topics = Topic.all.order("created_at DESC")
+    @topics = Topic.paginate(page: params[:page], per_page: 10).order("created_at DESC")
   end
 
   def new

@@ -1,20 +1,28 @@
 <div class="userprofile">
   <div class="usertop offset-1">
-    <% if @user.avatar.attached? %>
-      <div class="commentbox col-3">
-        <%= image_tag(@user.thumbnail) %>
+    <div class="commentbox col-3 text-right", style="display:inline-block;">
+      <div class="commentdivider float-left">
+        <% if @user.avatar.attached? %>
+          <%= image_tag(@user.thumbnail) %>
+        <% else %>
+          <%= image_tag('noicon.png') %>
+        <% end %>
       </div>
-    <% end %>
-    <small>
-      Member for <%= time_ago_in_words(@user.created_at) %><br>
-      <%= @user.comments.count %> posts
-    </small>
+      <%= @user.username %>
+      <br>
+      <small>
+        Member for <%= time_ago_in_words(@user.created_at) %><br>
+        <%= @user.comments.count %> posts
+      </small>
+      <br>
+    </div>
     <br />
 
     <% if current_user && current_user == @user %>
       <%= link_to "edit profile", edit_user_registration_path(@user), class: "col-3 btn btn-sm btn-danger" %><br><br />
     <% end %>
   </div>
+  <br class="clr" />
   <div class="userbody_left">
     <div class="userposts commentbox">
       <h3 class="text-center">recent posts</h3>

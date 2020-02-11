@@ -8,13 +8,13 @@
       <% else %>
         <%= image_tag('noicon.png') %>
       <% end %>
-      <%= comment.user.username %> 
+      <%= link_to (comment.user.username), user_path(comment.user) %> 
     </div>
     <div class="commentdivider col-9 float-right">
       <%= comment.comment %><br />
       <% if current_user == comment.user %>
         <sub class="commcontrols">
-          <%= link_to "edit", edit_topic_comment_path(comment.topic, comment) %>&nbsp;
+          <%= link_to "edit", edit_topic_comment_path(comment.topic, comment) %>&nbsp;|
           <%= link_to "delete", [comment.topic, comment], method: :delete, data: { confirm: "Are you sure?" } %>  
         </sub>
       <% end %> 
